@@ -1,7 +1,16 @@
-export default function App() {
+import { Canvas } from '@react-three/fiber'
+import React, { Suspense } from 'react'
+import Experience from './components/Experience'
+
+function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+   <Canvas shadows camera={{position: [0,2,5],fov:30}}>
+    <color attach="background" args={["#ececec"]}/>
+    <Suspense fallback={null}>
+    <Experience/>
+    </Suspense>
+   </Canvas>
   )
 }
+
+export default App
