@@ -9,7 +9,7 @@ function Experience() {
       value: "Typing",
       options: ["Typing", "Falling", "Standing"],
     },
-  });
+  }); 
 
   return (
     <>
