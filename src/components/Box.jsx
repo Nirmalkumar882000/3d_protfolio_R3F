@@ -14,9 +14,17 @@ function Box(props) {
    
     >
     <Office section={section}/>
+
+    {/* Skills */}
+
+    <directionalLight position={[-5,3,5]} intensity={0.4}/>
+
+
+
     </motion.group>
     </>
   )
 }
 
 export default Box
+
