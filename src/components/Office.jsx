@@ -297,7 +297,7 @@ export function Office(props) {
           scale: section === 0 ? 1 : 0,
         }}
         name="Chair"
-        position={[-0.28, 0, -0.71]}
+        position={[0.09, 0, -0.66]}
         rotation={[0, -0.38, 0]}
       >
         <mesh

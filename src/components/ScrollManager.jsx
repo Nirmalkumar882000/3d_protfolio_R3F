@@ -43,6 +43,7 @@ function ScrollManager(props) {
         ){
     onSectionChange(0)
          }
+         lastScroll.current=data.scroll.current;
 
     });
 

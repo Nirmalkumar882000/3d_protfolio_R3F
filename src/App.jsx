@@ -7,6 +7,9 @@ import Interface from "./components/Interface";
 import ScrollManager from "./components/ScrollManager";
 import Menu from "./components/Menu";
 import { MotionConfig } from "framer-motion";
+import { Leva } from "leva";
+import framerMotionConfig from "./config";
+import { Cursor } from "./components/Cursor";
 
 function App() {
   const [section,setSection]=useState(0)
@@ -26,29 +29,29 @@ function App() {
    </Canvas> */}
    <MotionConfig
    transition={{
-    type:"spring",
-    mass:5,
-    stiffness:500,
-    damping:50,
-    restDelta:0.0001,
+    ...framerMotionConfig
    }}
 
    >
       <Canvas shadows camera={{ position: [0, 3, 10], fov: 42 }}>
         <color attach="background" args={["#e6e7ff"]} />
-        <OrbitControls enableZoom={false} />
         <ScrollControls pages={4} damping={0.1}>
           <ScrollManager section={section} onSectionChange={setSection}/>
           <Scroll>
-          <Box  section={section}/>
+            <Suspense fallback={null}>
+          <Box  section={section} menu={menu}/>
+            </Suspense>
           </Scroll>
           <Scroll html>
             <Interface/>
           </Scroll>
         </ScrollControls>
       </Canvas>
+
       <Menu onSectionChange={setSection} menu={menu} setMenu={setMenu}/>
+      <Cursor />
    </MotionConfig>
+   <Leva hidden/>
     </>
   );
 }
